@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+// Minimiziranje koledarja
 const Exit = ({ setActive }) => {
   const [hover, setHover] = useState("17px");
 

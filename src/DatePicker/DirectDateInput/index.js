@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { buttonStyle, inputStyle, outerDivStyle } from "./styles";
 
+// Vnašanje in potrjevanje celega datuma
 const DirectDateInput = ({ setDate, handleClick }) => {
   const [hover, setHover] = useState("17px");
   const buttonTextStyle = {

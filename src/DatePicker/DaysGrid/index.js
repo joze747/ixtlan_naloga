@@ -1,6 +1,7 @@
 import Day from "./Day";
 import { outerDiv } from "./styles";
 
+// Grid v katerem se nahajajo posamezni dnevi
 const DaysGrid = ({ firstDay, daysInMonth, daysArray }) => {
   return (
     <div style={outerDiv}>

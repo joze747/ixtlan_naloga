@@ -10,7 +10,7 @@ import WeekYear from "./WeekYear";
 
 const DatePicker = () => {
   const d = new Date();
-  // uporaba useStatov za spremenljike
+  // uporaba useStatov za spremenljike mesec, leto, in cel datum
   const [month, setMonth] = useState(d.getMonth());
   const [year, setYear] = useState(d.getFullYear());
   const [date, setDate] = useState("");
@@ -19,6 +19,7 @@ const DatePicker = () => {
   const firstDay = getFirstWeekDay(month, year);
   const daysInMonth = getDaysInMonth(month, year);
 
+  // useEffect za pridobivanje tabele dnevov
   useEffect(() => {
     getDaysArray(month, year, setDaysArray);
   }, [month, year]);

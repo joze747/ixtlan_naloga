@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+// Minimiziran prikaz
 const TitleButton = ({ setActive }) => {
   const [fontSize, setFontSize] = useState("20px");
   const titleStyle = {

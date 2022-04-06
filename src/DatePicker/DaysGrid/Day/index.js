@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+// Dan, ki ima različne prikaze glede na to ali je sobota ali praznik.
 const Day = ({ value, active, sunday, holiday }) => {
   const [fontSize, setFontSize] = useState("16px");
   const dayStyleOff = {
