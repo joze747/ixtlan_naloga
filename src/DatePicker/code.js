@@ -1,11 +1,6 @@
-import { dayNumsByMonths, months, weekDaysShort } from "./constants";
+import { dayNumsByMonths } from "./constants";
+import holidays from "../holidays.txt";
 
-export function dater() {
-  const d = new Date();
-  console.log(months[d.getMonth()]);
-  d.setDate(1);
-  console.log(weekDaysShort[d.getDay() - 1]);
-}
 export function getFirstWeekDay(month, year) {
   const d = new Date();
   d.setMonth(month);
@@ -19,4 +14,18 @@ export function getDaysInMonth(month, year) {
     return 29;
   }
   return dayNumsByMonths[month];
+}
+
+export async function getDaysArray(month, year, setResArray) {
+  const resArray = new Array(getDaysInMonth(month, year)).fill(-1);
+  await fetch(holidays)
+    .then((r) => r.json())
+    .then((data) => {
+      data[month].forEach((element) => {
+        if (element.year === -1) resArray[element.day] = element.name;
+        else if (element.year === parseInt(year, 10))
+          resArray[element.day] = element.name;
+      });
+    });
+  return setResArray(resArray);
 }

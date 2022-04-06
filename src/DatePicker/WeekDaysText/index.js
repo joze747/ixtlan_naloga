@@ -1,27 +1,10 @@
 import { weekDaysShort } from "../constants";
-
+import { outerDivStyle, textStyle } from "./styles";
 const WeekDaysText = () => {
   return (
-    <div
-      style={{
-        height: "2rem",
-        display: "grid",
-        gridTemplateColumns: "repeat(7, 1fr)",
-        width: "95%",
-        marginBottom: "5px"
-      }}
-    >
+    <div style={outerDivStyle}>
       {weekDaysShort.map((value) => (
-        <div
-          style={{
-            height: "2rem",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            width: "95%"
-          }}
-          key={value}
-        >
+        <div style={textStyle} key={value}>
           {value}
         </div>
       ))}

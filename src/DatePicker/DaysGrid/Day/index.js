@@ -1,4 +1,7 @@
-const Day = ({ value, active, sunday }) => {
+import { useState } from "react";
+
+const Day = ({ value, active, sunday, holiday }) => {
+  const [fontSize, setFontSize] = useState("16px");
   const dayStyleOff = {
     display: "flex",
     width: "2.2rem",
@@ -15,10 +18,12 @@ const Day = ({ value, active, sunday }) => {
     alignItems: "center",
     width: "2.2rem",
     height: "2.2rem",
-    backgroundColor: "white",
+    backgroundColor: holiday ? "lightBlue" : "white",
     marginTop: "5px",
     border: "1px solid blue",
-    borderRadius: "5px"
+    borderRadius: "5px",
+    fontSize: fontSize,
+    cursor: "pointer"
   };
 
   const dayStyleOnSunday = {
@@ -27,17 +32,21 @@ const Day = ({ value, active, sunday }) => {
     alignItems: "center",
     width: "2.2rem",
     height: "2.2rem",
-    backgroundColor: "white",
+    backgroundColor: holiday ? "lightBlue" : "white",
     color: "red",
     marginTop: "5px",
     border: "1px solid blue",
-    borderRadius: "5px"
+    borderRadius: "5px",
+    cursor: "pointer",
+    fontSize: fontSize
   };
 
   return (
     <div
       style={active ? (sunday ? dayStyleOnSunday : dayStyleOn) : dayStyleOff}
       key={value}
+      onMouseEnter={() => setFontSize("19px")}
+      onMouseLeave={() => setFontSize("16px")}
     >
       {active && value + 1}
     </div>
